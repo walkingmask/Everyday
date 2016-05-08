@@ -9,7 +9,7 @@ for i in range(n):
 # comp
 #marks = ['S', 'H', 'C', 'D']
 #for i in marks:
-for i in ['S', 'H', 'C', 'D']
+for i in ['S', 'H', 'C', 'D']:
 	for j in range(1, 14):
 		if [i, str(j)] not in cards:
 			print i, j
