@@ -1,4 +1,4 @@
-# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_6_B
+# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_6_C
 
 import sys
 
