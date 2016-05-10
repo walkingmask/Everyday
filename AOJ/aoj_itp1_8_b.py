@@ -1,4 +1,4 @@
-# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_8_A
+# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ITP1_8_B
 
 while 1:
 	x = raw_input()
