@@ -1,6 +1,69 @@
+/* frac.h
+ * 2016/05/26(Thu)
+ * walkingmask
+ * discripthon
+ *  Calculating fractional api
+ *
+ * 2016/05/28 Up to date
+ *  - added some functions
+ *  - It outputs the integer value when the denominator is 1
+ *  - Complex calculation of an integer value
+ *  - add an structure of fraction, but it is not in use now
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+/*
+ * the structure of the fraction
+ * caution: it is not in use yet
+ */
+typedef struct {
+    int top; // top part
+    int bot; // bottom part
+    int in;  // integer part
+} frac_t;
+
+/*
+ * the number is a fraction or an integer?
+ * caution: another possibility is not taken (like a float...)
+ */
+int isfrac(char *num) {
+    int i;
+    for (i=0; i<strlen(num); i++)
+        if (num[i] == '/') return 0;
+    return 1;
+}
+
+/*
+ * do convert: an integer -> a fraction
+ */
+void int2frac(char *i, char *f) {
+    strcpy(f, i);
+    f[strlen(i)] = '/';
+    f[strlen(i)+1] = '1';
+    f[strlen(i)+2] = '\0';
+}
+
+/*
+ * can convert the fraction to an integer?
+ */
+int canconv2int(char *f) {
+    int top, bot;
+    sscanf(f, "%d/%d", &top, &bot);
+    if (top%bot == 0) return 0;
+    return 1;
+}
+
+/*
+ * do convert: an integer -> a fraction
+ */
+void frac2int(char *f) {
+    int top, bot;
+    sscanf(f, "%d/%d", &top, &bot);
+    sprintf(f, "%d", top/bot);
+}
 
 /*
  * get the greatest common divisor of x and y
@@ -127,12 +190,12 @@ int fracdiv(const char *f1, const char *f2, char *res) {
 
 /*
  * fraction calculator
- * f     :   fomula of fraction
+ * f : fomula of fraction
  * fomula must be like this "1/2 * 3/4"
  */
 int frac(const char *f, char *res) {
 
-    char tempf[32], *f1, *op, *f2;
+    char tempf[32], *f1, *op, *f2, ft1[16], ft2[16];
 
     // convert const char* to char*
     strcpy(tempf, f);
@@ -142,7 +205,17 @@ int frac(const char *f, char *res) {
     op = strtok(NULL, " ");
     f2 = strtok(NULL, " ");
 
-    // switching the operation
+    // for convert from an integer to a fraction
+    if (isfrac(f1) != 0) {
+        int2frac(f1, ft1);
+        f1 = ft1;
+    }
+    if (isfrac(f2) != 0) {
+        int2frac(f2, ft2);
+        f2 = ft2;
+    }
+
+    // branch by the operator
     switch (*op) {
         case '+':
             fracadd(f1, f2, res);
@@ -159,6 +232,9 @@ int frac(const char *f, char *res) {
         default:
             break;
     }
+
+    // for convert from a fraction to an integer
+    if (canconv2int(res) == 0) frac2int(res);
 
     return 0;
 }

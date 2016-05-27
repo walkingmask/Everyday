@@ -3,9 +3,6 @@
  * walkingmask
  * discripthon
  *  Calculating remain fractional
- * ToDo
- *  ・分母が1の時は整数値を出力する
- *  ・整数値との複合計算
  */
 
 #include <stdio.h>
