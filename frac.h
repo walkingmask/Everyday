@@ -9,6 +9,13 @@
  *  - It outputs the integer value when the denominator is 1
  *  - Complex calculation of an integer value
  *  - add an structure of fraction, but it is not in use now
+ *
+ * 2016/05/29 Up to date
+ *  - exception handling of the case expression is too long in frac()
+ *
+ * ToDo
+ *  - add the process for the operation of very large value
+ *     that Within the range of the fomula's limitation
  */
 
 #include <stdio.h>
@@ -194,6 +201,11 @@ int fracdiv(const char *f1, const char *f2, char *res) {
  * fomula must be like this "1/2 * 3/4"
  */
 int frac(const char *f, char *res) {
+    // exception handling of the case expression is too long
+    if (strlen(f) > 32) {
+        fprintf(stderr, "the fomula is too long.\n");
+        exit(EXIT_FAILURE);
+    }
 
     char tempf[32], *f1, *op, *f2, ft1[16], ft2[16];
 
