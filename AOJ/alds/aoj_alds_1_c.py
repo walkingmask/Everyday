@@ -1,4 +1,4 @@
-# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_B
+# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_1_C
 # 07:51 - 08:39
 # ref http://d.hatena.ne.jp/pashango_p/20090704/1246692091
 
