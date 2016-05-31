@@ -1,5 +1,6 @@
 # http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_2_A
 # -
+# bubble sort
 
 def bubbleSort(A, N):
     flag = 1
