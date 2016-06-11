@@ -1,4 +1,4 @@
-# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_4_B
+# http://judge.u-aizu.ac.jp/onlinejudge/description.jsp?id=ALDS1_4_C
 # 15:04 - 15:15
 # Dictionary
 
